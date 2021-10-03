@@ -1,4 +1,3 @@
-from os import waitpid
 import sqlite3
 from person import Person
 from pathlib import Path
