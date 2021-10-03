@@ -31,20 +31,6 @@ def main():
             exit(0)
 
 
-# def test():
-#     con = sqlite3.connect('my.db')
-#     cur = con.cursor()
-#     cur.execute('''CREATE TABLE products(
-#     product_id TEXT,
-#     product_name TEXT,
-#     product_price REAL
-# );''')
-#     cur.execute(
-#         f'''INSERT INTO products VALUES("{uuid4()}", "surface", "1000")''')
-#     con.commit()
-#     for row in cur.execute('SELECT * FROM products'):
-#         print(row)
-
-
 if __name__ == '__main__':
     main()
+
