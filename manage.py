@@ -64,6 +64,13 @@ class Manager:
         else:
             print(f'user:{userid} is not exist!')
 
+    def db_commit(func):
+        def wrapper(self):
+            func(self)
+            self.connection.commit()
+        return wrapper
+
+    @db_commit
     def add_person(self):
         person = Person()
         person.name = input('name:')
@@ -135,9 +142,7 @@ class Manager:
                 print('|'.join(str(field) for field in row))
 
         def present_on_broswer():
-            person_csv = Path('person.csv')
-            if person_csv.is_file() is False:
-                self.export()
+            self.export()
             pandas.read_csv("person.csv").to_html('table.html')
             modify_style()
             webbrowser.open("table.html")
